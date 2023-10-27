@@ -247,6 +247,8 @@ void* bellHop(void* args) {
 
 
 int main() {
+    printf("Simulation started\n");
+    
     // For randomly generating bag number purposes
     srand(time(0));
     
@@ -334,5 +336,6 @@ int main() {
     sem_destroy(&requestHelpFromBellhop);
     sem_destroy(&bellhopAvailability);
     
+    printf("Simulation ended\n");
     return 0;
 }
