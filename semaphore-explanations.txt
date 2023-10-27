@@ -1,0 +1,22 @@
+semaphore frontDeskAvailability = 2; // how many front desk employees are available
+semaphore guestRequestedRoom = 0; // indicates if a customer requested the front desk for a room
+semaphore mutex2 = 1; // enforces mutual exclusion when processing a task on q1
+semaphore mutex3 = 1; // enforces mutual exlusion when incrementing number of guest threads created
+semaphore mutex4 = 1; // enforces mutual exclusion when incrementing number of front desk employee threads created
+semaphore mutex5 = 1; // enforces mutual exclusion when incrementing number of guest threads who entered the hotel
+semaphore mutex6 = 1; // enforces mutual exclusion when incrementing number of bellhop threads created
+semaphore mutex7 = 1; // enforces mutual exclusion when processing a task on q2
+semaphore finishedCreatingGuests = 0; // indicates when all guest threads have been created
+semaphore finishedCreatingFrontDesk = 0; // indicates when all front desk employee threads have been created (for guest threads)
+semaphore finishedCreatingFrontDesk2 = 0; // indicates when all front desk employee threads have been created (for bellhop threads)
+semaphore finishedCreatingBellhops = 0; // indicates when all bellhop threads have been created
+semaphore finishedEnteringHotel = 0; // indicates when all guest threads have entered the hotel
+semaphores deskIsProvidingKey[25]; // indicates if a front desk employee is providing a key to a guest
+semaphores guestReceivedKey[25]; // indicates if a guest received a key by the front desk
+semaphore requestHelpFromBellhop = 0; // indicates if a guest is requesting help from a bellhop to carry bags
+semaphore bellhopAvailability = 2; // how many bellhops are available
+semaphores bagsTakenByBellhop[25]; // indicates when a bellhop takes the bags of a guest who requested bellhop service
+semaphores guestReachedRoom[25]; // indicates to the bellhops when a guest being serviced has entered the assigned room
+semaphores bagsDelivered[25]; // indicates to the guests when the bags have been delivered
+semaphores tipGiven[25]; // indicates to bellhops when a guest is giving a tip
+semaphores tipAccepted[25]; // indicates to the guests when a bellhop accepts a tip from the guest

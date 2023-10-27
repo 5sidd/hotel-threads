@@ -173,10 +173,6 @@ void* frontDesk(void* args) {
     int assignedRoom;
     
     while (1) {
-        if (currentRoomNumber == 25) {
-            break;
-        }
-        
         // Wait until a guest makes a request
         sem_wait(&guestRequestedRoom);
         
